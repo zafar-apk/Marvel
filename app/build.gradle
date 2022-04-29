@@ -17,12 +17,21 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    def apiKey = "\"7822984caf8516661d9caa023d24ca5576e0e991\""
+
+
     buildTypes {
+        debug {
+            buildConfigField "String", "marvel_api_key", apiKey
+        }
+        
         release {
+            buildConfigField "String", "marvel_api_key", apiKey
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
