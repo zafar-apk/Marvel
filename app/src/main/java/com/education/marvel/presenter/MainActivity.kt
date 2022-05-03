@@ -1,7 +1,7 @@
 package com.education.marvel.presenter
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.education.marvel.R
 
 class MainActivity : AppCompatActivity() {

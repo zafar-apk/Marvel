@@ -2,12 +2,12 @@ package com.education.marvel.data.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class DataWrapper<T>(
+data class CharactersDataWrapper(
     @SerializedName("code") val code: Int?,
-    @SerializedName("status") val status: Int?,
+    @SerializedName("status") val status: String?,
     @SerializedName("copyright") val copyright: String?,
     @SerializedName("attributionText") val attributionText: String?,
     @SerializedName("attributionHTML") val attributionHTML: String?,
-    @SerializedName("data") val data: T?,
+    @SerializedName("data") val `data`: CharacterDataContainer?,
     @SerializedName("etag") val eTag: String?
 )

@@ -17,16 +17,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    def apiKey = "\"7822984caf8516661d9caa023d24ca5576e0e991\""
-
+    def public_key = "\"0aca845e119130492277242229db4f6c\""
+    def private_key = "\"7822984caf8516661d9caa023d24ca5576e0e991\""
 
     buildTypes {
         debug {
-            buildConfigField "String", "marvel_api_key", apiKey
+            buildConfigField "String", "public_api_key", public_key
+            buildConfigField "String", "private_api_key", private_key
         }
-        
+
         release {
-            buildConfigField "String", "marvel_api_key", apiKey
+            buildConfigField "String", "public_api_key", public_key
+            buildConfigField "String", "private_api_key", private_key
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -39,6 +41,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -47,6 +52,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
