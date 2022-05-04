@@ -1,15 +1,15 @@
-package com.education.data.utils
+package com.education.network.utils
 
-import com.education.data.BuildConfig
+import com.education.network.Keys
 import java.math.BigInteger
 import java.security.MessageDigest
 
-object HashGenerator {
+internal object HashGenerator {
 
     fun generate(timestamp: Long) = buildString {
         append(timestamp)
-        append(BuildConfig.private_api_key)
-        append(BuildConfig.public_api_key)
+        append(Keys.PRIVATE_KEY)
+        append(Keys.PUBLIC_KEY)
     }.toMd5()
 
     private fun String.toMd5(): String {

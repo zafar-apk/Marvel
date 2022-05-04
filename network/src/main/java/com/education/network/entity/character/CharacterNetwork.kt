@@ -1,7 +1,7 @@
-package com.education.data.entity.character
+package com.education.network.entity.character
 
-import com.education.data.entity.NetworkImage
-import com.education.data.entity.SummaryList
+import com.education.network.entity.NetworkImage
+import com.education.network.entity.SummaryList
 import com.google.gson.annotations.SerializedName
 import java.util.*
 

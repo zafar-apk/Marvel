@@ -1,8 +1,8 @@
 package com.education.data.utils
 
 import com.education.data.R
-import com.education.data.entity.SummaryList
-import com.education.data.entity.character.CharacterNetwork
+import com.education.network.entity.SummaryList
+import com.education.network.entity.character.CharacterNetwork
 import javax.inject.Inject
 
 

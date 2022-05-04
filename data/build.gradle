@@ -15,18 +15,8 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    def public_key = "\"0aca845e119130492277242229db4f6c\""
-    def private_key = "\"7822984caf8516661d9caa023d24ca5576e0e991\""
-
     buildTypes {
-        debug {
-            buildConfigField "String", "public_api_key", public_key
-            buildConfigField "String", "private_api_key", private_key
-        }
-
         release {
-            buildConfigField "String", "public_api_key", public_key
-            buildConfigField "String", "private_api_key", private_key
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -43,6 +33,7 @@ android {
 
 dependencies {
 
+    api project(path: ':network')
     implementation project(path: ':core')
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -55,12 +46,6 @@ dependencies {
     // Di
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
-    // Network
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    //noinspection GradleDependency
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
     // DataBase
     implementation "androidx.room:room-runtime:$roomVersion"

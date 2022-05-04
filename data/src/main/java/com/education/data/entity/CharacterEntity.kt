@@ -1,4 +1,4 @@
-package com.education.data.entity.character
+package com.education.data.entity
 
 import androidx.room.Embedded
 import androidx.room.Entity

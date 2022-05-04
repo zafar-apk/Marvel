@@ -1,4 +1,4 @@
-package com.education.data.entity.character
+package com.education.network.entity.character
 
 import com.google.gson.annotations.SerializedName
 

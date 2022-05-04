@@ -1,7 +1,7 @@
 package com.education.data.source
 
 import com.education.data.db.CharacterDao
-import com.education.data.entity.character.CharacterEntity
+import com.education.data.entity.CharacterEntity
 import com.education.data.mapper.toCharacter
 import com.education.data.mapper.toEntity
 import com.education.domain.entity.Character

@@ -1,13 +1,14 @@
-package com.education.data.network
+package com.education.network
 
-import com.education.data.entity.character.CharactersDataWrapper
+import com.education.network.entity.character.CharactersDataWrapper
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MarvelApi {
 
-    private companion object {
-        const val MODIFIED_DESC = "-modified"
+    companion object {
+        private const val MODIFIED_DESC = "-modified"
+        const val BASE_URL = "https://gateway.marvel.com"
     }
 
     @GET("/v1/public/characters")

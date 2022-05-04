@@ -1,7 +1,6 @@
-package com.education.data.network
+package com.education.network
 
-import com.education.data.BuildConfig
-import com.education.data.utils.HashGenerator
+import com.education.network.utils.HashGenerator
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.util.*
@@ -19,7 +18,7 @@ class AuthInterceptor @Inject constructor() : Interceptor {
         val timestamp = Calendar.getInstance().timeInMillis
 
         val url = chain.request().url.newBuilder()
-            .addQueryParameter(API_KEY, BuildConfig.public_api_key)
+            .addQueryParameter(API_KEY, Keys.PUBLIC_KEY)
             .addQueryParameter(TS, timestamp.toString())
             .addQueryParameter(HASH, HashGenerator.generate(timestamp))
             .build()

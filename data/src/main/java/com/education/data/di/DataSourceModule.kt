@@ -4,10 +4,11 @@ import com.education.data.source.LocalDataSourceImpl
 import com.education.data.source.NetworkDataSourceImpl
 import com.education.domain.source.LocalDataSource
 import com.education.domain.source.NetworkDataSource
+import com.education.network.di.NetworkModule
 import dagger.Binds
 import dagger.Module
 
-@Module(includes = [RepositoryModule::class])
+@Module(includes = [NetworkModule::class])
 interface DataSourceModule {
 
     @Binds

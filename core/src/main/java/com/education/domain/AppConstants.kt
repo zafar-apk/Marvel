@@ -2,8 +2,6 @@ package com.education.domain
 
 object AppConstants {
 
-    const val BASE_URL = "https://gateway.marvel.com"
-
     const val THUMBNAIL_PATH = "portrait_xlarge"
     const val THUMBNAIL_MAIN_PATH = "detail"
 

@@ -1,11 +1,11 @@
 package com.education.data.source
 
 import com.education.data.mapper.toCharacter
-import com.education.data.network.MarvelApi
 import com.education.data.utils.CharacterDetailsBuilder
 import com.education.domain.AppConstants
 import com.education.domain.entity.Character
 import com.education.domain.source.NetworkDataSource
+import com.education.network.MarvelApi
 import javax.inject.Inject
 
 class NetworkDataSourceImpl @Inject constructor(

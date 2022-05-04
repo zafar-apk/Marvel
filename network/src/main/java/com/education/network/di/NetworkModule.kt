@@ -1,9 +1,7 @@
-package com.education.data.di
+package com.education.network.di
 
-import com.education.data.BuildConfig
-import com.education.data.network.AuthInterceptor
-import com.education.data.network.MarvelApi
-import com.education.domain.AppConstants.BASE_URL
+import com.education.network.AuthInterceptor
+import com.education.network.MarvelApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,12 +11,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
-@Module(includes = [DataSourceModule::class])
+@Module
 object NetworkModule {
 
     @Provides
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(
-        if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+    fun provideLoggingInterceptor(
+        isDebug: Boolean
+    ): HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(
+        if (isDebug) HttpLoggingInterceptor.Level.BODY
         else HttpLoggingInterceptor.Level.NONE
     )
 
@@ -39,7 +39,7 @@ object NetworkModule {
     ): Retrofit = Retrofit.Builder()
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BASE_URL)
+        .baseUrl(MarvelApi.BASE_URL)
         .build()
 
     @Provides
