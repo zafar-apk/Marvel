@@ -81,7 +81,7 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
 
     private fun setupRecyclerView() {
         binding?.charactersRecyclerView?.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = gridLayoutManager
             setHasFixedSize(true)
             adapter = charactersAdapter
             addOnScrollListener(pagingScrollListener)
