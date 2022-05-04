@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -35,8 +34,7 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     }
 
     @Inject
-    lateinit var viewModelFactory: CharacterListViewModel.Factory
-    private val viewModel: CharacterListViewModel by viewModels { viewModelFactory }
+    lateinit var viewModel: CharacterListViewModel
 
     private var binding: FragmentCharacterListBinding? = null
 
@@ -44,9 +42,8 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         CharactersAdapter(::onCharacterClicked)
     }
 
-    private val gridLayoutManager by lazy {
-        GridLayoutManager(requireContext(), LIST_SPAN_COUNT)
-    }
+    private val gridLayoutManager
+        get() = GridLayoutManager(requireContext(), LIST_SPAN_COUNT)
 
     private val pagingScrollListener by lazy {
         EndlessRecyclerViewScrollListener(gridLayoutManager) { page, _, _ ->
