@@ -1,9 +1,9 @@
-package com.education.marvel.di
+package com.education.marvel.di.repository
 
 import android.content.Context
 import androidx.room.Room
+import com.education.marvel.data.db.CharacterDao
 import com.education.marvel.data.db.MarvelDatabase
-import com.education.marvel.data.source.LocalDataSource
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -21,6 +21,6 @@ object LocalDataModule {
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(database: MarvelDatabase): LocalDataSource = database.dao()
+    fun provideCharacterDao(database: MarvelDatabase): CharacterDao = database.dao()
 
 }

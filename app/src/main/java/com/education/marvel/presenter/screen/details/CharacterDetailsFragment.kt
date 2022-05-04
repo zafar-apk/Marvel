@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.education.marvel.App
@@ -24,8 +23,7 @@ import javax.inject.Inject
 class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
 
     @Inject
-    lateinit var vmFactory: CharacterDetailsViewModel.Factory
-    private val viewModel: CharacterDetailsViewModel by viewModels { vmFactory }
+    lateinit var viewModel: CharacterDetailsViewModel
 
     private var binding: FragmentCharacterDetailsBinding? = null
 

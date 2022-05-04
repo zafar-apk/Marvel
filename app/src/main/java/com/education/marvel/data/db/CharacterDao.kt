@@ -6,17 +6,16 @@ import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.education.marvel.data.entity.character.CharacterEntity
 import com.education.marvel.data.entity.character.TABLE_NAME
-import com.education.marvel.data.source.LocalDataSource
 
 @Dao
-interface CharacterDao : LocalDataSource {
+interface CharacterDao  {
 
     @Insert(onConflict = REPLACE)
-    override suspend fun save(vararg characterEntity: CharacterEntity)
+    suspend fun save(vararg characterEntity: CharacterEntity)
 
     @Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
-    override suspend fun getById(id: Int): CharacterEntity
+    suspend fun getById(id: Int): CharacterEntity
 
     @Query("SELECT * FROM $TABLE_NAME WHERE page = :page")
-    override suspend fun getByPage(page: Int): List<CharacterEntity>
+    suspend fun getByPage(page: Int): List<CharacterEntity>
 }

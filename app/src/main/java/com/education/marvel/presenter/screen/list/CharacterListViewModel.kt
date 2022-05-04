@@ -1,15 +1,17 @@
 package com.education.marvel.presenter.screen.list
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.education.marvel.domain.entity.Character
 import com.education.marvel.domain.entity.Result
 import com.education.marvel.domain.usecase.GetCharactersByPageUseCase
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Provider
 
-class CharacterListViewModel(
+class CharacterListViewModel @Inject constructor(
     private val getCharactersByPageUseCase: GetCharactersByPageUseCase
 ) : ViewModel() {
 
@@ -53,12 +55,4 @@ class CharacterListViewModel(
         getCharacters(allCharacters.lastOrNull()?.page ?: INITIAL_PAGE)
     }
 
-    class Factory @Inject constructor(
-        private val getCharactersByPageUseCase: Provider<GetCharactersByPageUseCase>
-    ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            require(modelClass == CharacterListViewModel::class.java)
-            return CharacterListViewModel(getCharactersByPageUseCase.get()) as T
-        }
-    }
 }

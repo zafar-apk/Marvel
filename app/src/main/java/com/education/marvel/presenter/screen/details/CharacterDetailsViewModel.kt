@@ -20,13 +20,4 @@ class CharacterDetailsViewModel @Inject constructor(
         }
     }
 
-    class Factory @Inject constructor(
-        private val getCharacterUseCase: Provider<GetCharacterUseCase>
-    ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            require(modelClass == CharacterDetailsViewModel::class.java)
-            return CharacterDetailsViewModel(getCharacterUseCase.get()) as T
-        }
-    }
-
 }

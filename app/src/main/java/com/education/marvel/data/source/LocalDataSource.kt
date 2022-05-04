@@ -1,13 +1,13 @@
 package com.education.marvel.data.source
 
-import com.education.marvel.data.entity.character.CharacterEntity
+import com.education.marvel.domain.entity.Character
 
 interface LocalDataSource {
 
-    suspend fun save(vararg characterEntity: CharacterEntity)
+    suspend fun getByPage(page: Int): List<Character>
 
-    suspend fun getByPage(page: Int): List<CharacterEntity>
+    suspend fun getById(id: Int): Character
 
-    suspend fun getById(id: Int): CharacterEntity
+    suspend fun save(characters: List<Character>, page: Int)
 
 }

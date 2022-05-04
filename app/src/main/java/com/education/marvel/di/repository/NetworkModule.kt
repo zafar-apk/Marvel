@@ -1,4 +1,4 @@
-package com.education.marvel.di
+package com.education.marvel.di.repository
 
 import com.education.marvel.AppConstants.BASE_URL
 import com.education.marvel.BuildConfig
@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
-@Module(includes = [NetworkBindingsModule::class])
+@Module(includes = [RepositoryModule::class])
 object NetworkModule {
 
     @Provides
