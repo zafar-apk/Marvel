@@ -1,8 +1,9 @@
 package com.education.marvel.presenter.util
 
-import com.education.marvel.AppConstants
-import com.education.marvel.domain.entity.Image
+import com.education.domain.AppConstants
 
-fun Image.buildDetailImageUrl() = "$path/${AppConstants.THUMBNAIL_MAIN_PATH}.$extension"
+fun com.education.domain.entity.Image.buildDetailImageUrl() =
+    "$path/${AppConstants.THUMBNAIL_MAIN_PATH}.$extension"
 
-fun Image.buildListItemUrl() = "$path/${AppConstants.THUMBNAIL_PATH}.$extension"
+fun com.education.domain.entity.Image.buildListItemUrl() =
+    "$path/${AppConstants.THUMBNAIL_PATH}.$extension"

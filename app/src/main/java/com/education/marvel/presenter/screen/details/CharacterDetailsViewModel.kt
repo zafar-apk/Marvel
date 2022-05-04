@@ -1,11 +1,13 @@
 package com.education.marvel.presenter.screen.details
 
-import androidx.lifecycle.*
-import com.education.marvel.domain.entity.Character
-import com.education.marvel.domain.usecase.GetCharacterUseCase
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.education.domain.entity.Character
+import com.education.domain.usecase.GetCharacterUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Provider
 
 class CharacterDetailsViewModel @Inject constructor(
     private val getCharacterUseCase: GetCharacterUseCase

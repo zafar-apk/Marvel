@@ -1,7 +1,7 @@
 package com.education.marvel.presenter.screen.list.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.education.marvel.domain.entity.Character
+import com.education.domain.entity.Character
 
 object CharacterDiffUtil {
 

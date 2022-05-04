@@ -1,9 +1,9 @@
 package com.education.marvel.di.repository
 
-import com.education.marvel.AppConstants.BASE_URL
+import com.education.data.network.AuthInterceptor
+import com.education.data.network.MarvelApi
+import com.education.domain.AppConstants.BASE_URL
 import com.education.marvel.BuildConfig
-import com.education.marvel.data.network.AuthInterceptor
-import com.education.marvel.data.network.MarvelApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

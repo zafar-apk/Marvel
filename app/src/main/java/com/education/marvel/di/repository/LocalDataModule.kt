@@ -2,8 +2,8 @@ package com.education.marvel.di.repository
 
 import android.content.Context
 import androidx.room.Room
-import com.education.marvel.data.db.CharacterDao
-import com.education.marvel.data.db.MarvelDatabase
+import com.education.data.db.CharacterDao
+import com.education.data.db.MarvelDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

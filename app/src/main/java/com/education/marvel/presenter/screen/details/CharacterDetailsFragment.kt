@@ -10,11 +10,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import coil.load
+import com.education.domain.AppConstants.KEY_CHARACTER_ID
 import com.education.marvel.App
-import com.education.marvel.AppConstants.KEY_CHARACTER_ID
 import com.education.marvel.R
 import com.education.marvel.databinding.FragmentCharacterDetailsBinding
-import com.education.marvel.domain.entity.Character
 import com.education.marvel.presenter.screen.details.adapter.DetailsAdapter
 import com.education.marvel.presenter.util.buildDetailImageUrl
 import javax.inject.Inject
@@ -55,7 +54,7 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
         viewModel.characterLiveData.observe(viewLifecycleOwner, ::setData)
     }
 
-    private fun setData(character: Character) {
+    private fun setData(character: com.education.domain.entity.Character) {
         binding?.let { view ->
             view.characterImage.load(character.thumbnail?.buildDetailImageUrl())
 

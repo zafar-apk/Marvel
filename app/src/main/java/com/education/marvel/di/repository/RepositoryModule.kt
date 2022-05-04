@@ -1,11 +1,11 @@
 package com.education.marvel.di.repository
 
-import com.education.marvel.data.repository.CharacterRepositoryImpl
-import com.education.marvel.data.source.LocalDataSource
-import com.education.marvel.data.source.LocalDataSourceImpl
-import com.education.marvel.data.source.NetworkDataSource
-import com.education.marvel.data.source.NetworkDataSourceImpl
-import com.education.marvel.domain.repository.CharacterRepository
+import com.education.data.repository.CharacterRepositoryImpl
+import com.education.data.source.LocalDataSource
+import com.education.data.source.LocalDataSourceImpl
+import com.education.data.source.NetworkDataSource
+import com.education.data.source.NetworkDataSourceImpl
+import com.education.domain.repository.CharacterRepository
 import dagger.Binds
 import dagger.Module
 

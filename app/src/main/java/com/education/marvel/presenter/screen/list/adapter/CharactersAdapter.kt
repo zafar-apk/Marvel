@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import coil.load
+import com.education.domain.entity.Character
 import com.education.marvel.R
-import com.education.marvel.domain.entity.Character
 import com.education.marvel.presenter.util.buildListItemUrl
 
 class CharactersAdapter(

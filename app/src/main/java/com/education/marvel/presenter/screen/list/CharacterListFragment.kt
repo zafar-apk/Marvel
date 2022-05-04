@@ -14,8 +14,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.education.domain.AppConstants.KEY_CHARACTER_ID
 import com.education.marvel.App
-import com.education.marvel.AppConstants.KEY_CHARACTER_ID
 import com.education.marvel.R
 import com.education.marvel.databinding.FragmentCharacterListBinding
 import com.education.marvel.presenter.screen.list.adapter.CharactersAdapter

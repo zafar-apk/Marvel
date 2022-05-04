@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.education.marvel.domain.entity.Character
-import com.education.marvel.domain.entity.Result
-import com.education.marvel.domain.usecase.GetCharactersByPageUseCase
+import com.education.domain.entity.Character
+import com.education.domain.entity.Result
+import com.education.domain.usecase.GetCharactersByPageUseCase
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
