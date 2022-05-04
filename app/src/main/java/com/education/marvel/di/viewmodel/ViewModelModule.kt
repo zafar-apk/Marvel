@@ -2,8 +2,8 @@ package com.education.marvel.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.education.marvel.presenter.screen.details.CharacterDetailsViewModel
-import com.education.marvel.presenter.screen.list.CharacterListViewModel
+import com.education.details.presenter.CharacterDetailsViewModel
+import com.education.list.presentation.CharacterListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

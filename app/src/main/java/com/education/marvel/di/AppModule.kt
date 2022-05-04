@@ -1,7 +1,7 @@
 package com.education.marvel.di
 
-import com.education.marvel.di.repository.LocalDataModule
-import com.education.marvel.di.repository.NetworkModule
+import com.education.data.di.LocalDataModule
+import com.education.data.di.NetworkModule
 import com.education.marvel.di.viewmodel.ViewModelModule
 import dagger.Module
 import dagger.Provides

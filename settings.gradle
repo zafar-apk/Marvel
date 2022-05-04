@@ -14,5 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Marvel"
 include ':app'
-include ':domain'
+include ':core'
 include ':data'
+include ':feature:list'
+include ':feature:details'

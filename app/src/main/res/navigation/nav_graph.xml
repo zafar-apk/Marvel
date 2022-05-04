@@ -7,22 +7,17 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="com.education.marvel.presenter.screen.list.CharacterListFragment"
+        android:name="com.education.list.presentation.CharacterListFragment"
         android:label="CharacterListFragment"
         tools:layout="@layout/fragment_character_list">
-        <action
-            android:id="@+id/action_characterListFragment_to_characterDetailsFragment"
-            app:destination="@id/characterDetailsFragment">
-            <argument
-                android:name="character_id"
-                app:argType="integer" />
-        </action>
+        <deepLink app:uri="@string/deeplink_feature_list" />
     </fragment>
     <fragment
         android:id="@+id/characterDetailsFragment"
-        android:name="com.education.marvel.presenter.screen.details.CharacterDetailsFragment"
+        android:name="com.education.details.presenter.CharacterDetailsFragment"
         android:label="CharacterDetailsFragment"
         tools:layout="@layout/fragment_character_details">
+        <deepLink app:uri="@string/deeplink_feature_details" />
         <argument
             android:name="character_id"
             app:argType="integer" />

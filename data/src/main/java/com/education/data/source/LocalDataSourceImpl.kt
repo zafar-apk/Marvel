@@ -5,6 +5,7 @@ import com.education.data.entity.character.CharacterEntity
 import com.education.data.mapper.toCharacter
 import com.education.data.mapper.toEntity
 import com.education.domain.entity.Character
+import com.education.domain.source.LocalDataSource
 import javax.inject.Inject
 
 class LocalDataSourceImpl @Inject constructor(

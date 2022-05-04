@@ -5,6 +5,7 @@ import com.education.data.network.MarvelApi
 import com.education.data.utils.CharacterDetailsBuilder
 import com.education.domain.AppConstants
 import com.education.domain.entity.Character
+import com.education.domain.source.NetworkDataSource
 import javax.inject.Inject
 
 class NetworkDataSourceImpl @Inject constructor(
@@ -22,4 +23,5 @@ class NetworkDataSourceImpl @Inject constructor(
     private fun calculateOffsetByPage(
         page: Int
     ) = if (page == 1) 0 else AppConstants.DEFAULT_PAGE_SIZE * (page - 1)
+
 }
