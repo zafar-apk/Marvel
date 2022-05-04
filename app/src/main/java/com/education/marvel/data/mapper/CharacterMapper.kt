@@ -1,7 +1,7 @@
 package com.education.marvel.data.mapper
 
-import com.education.marvel.data.entity.CharacterEntity
-import com.education.marvel.data.entity.CharacterNetwork
+import com.education.marvel.data.entity.character.CharacterEntity
+import com.education.marvel.data.entity.character.CharacterNetwork
 import com.education.marvel.data.entity.NetworkImage
 import com.education.marvel.data.utils.CharacterDetailsBuilder
 import com.education.marvel.domain.entity.Character

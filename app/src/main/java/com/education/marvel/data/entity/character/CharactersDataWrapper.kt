@@ -1,4 +1,4 @@
-package com.education.marvel.data.entity
+package com.education.marvel.data.entity.character
 
 import com.google.gson.annotations.SerializedName
 

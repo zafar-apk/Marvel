@@ -21,6 +21,6 @@ object LocalDataModule {
 
     @Provides
     @Singleton
-    fun provideLocalDataSource(database: MarvelDatabase): LocalDataSource = database.characterDao()
+    fun provideLocalDataSource(database: MarvelDatabase): LocalDataSource = database.dao()
 
 }

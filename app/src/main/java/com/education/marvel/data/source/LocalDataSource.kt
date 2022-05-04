@@ -1,6 +1,6 @@
 package com.education.marvel.data.source
 
-import com.education.marvel.data.entity.CharacterEntity
+import com.education.marvel.data.entity.character.CharacterEntity
 
 interface LocalDataSource {
 

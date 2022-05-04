@@ -1,7 +1,6 @@
-package com.education.marvel.data.entity.comic
+package com.education.marvel.data.entity
 
 
-import com.education.marvel.data.entity.CommonSummary
 import com.google.gson.annotations.SerializedName
 
 data class SummaryList(

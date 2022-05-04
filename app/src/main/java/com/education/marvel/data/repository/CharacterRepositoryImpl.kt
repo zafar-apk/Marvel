@@ -1,6 +1,6 @@
 package com.education.marvel.data.repository
 
-import com.education.marvel.data.entity.CharacterEntity
+import com.education.marvel.data.entity.character.CharacterEntity
 import com.education.marvel.data.mapper.toCharacter
 import com.education.marvel.data.mapper.toEntity
 import com.education.marvel.data.source.LocalDataSource

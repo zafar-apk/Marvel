@@ -1,8 +1,8 @@
 package com.education.marvel.data.utils
 
 import com.education.marvel.R
-import com.education.marvel.data.entity.CharacterNetwork
-import com.education.marvel.data.entity.comic.SummaryList
+import com.education.marvel.data.entity.character.CharacterNetwork
+import com.education.marvel.data.entity.SummaryList
 import com.education.marvel.domain.provier.StringProvider
 import javax.inject.Inject
 

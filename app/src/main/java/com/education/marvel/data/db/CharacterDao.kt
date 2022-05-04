@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.education.marvel.data.entity.CharacterEntity
-import com.education.marvel.data.entity.TABLE_NAME
+import com.education.marvel.data.entity.character.CharacterEntity
+import com.education.marvel.data.entity.character.TABLE_NAME
 import com.education.marvel.data.source.LocalDataSource
 
 @Dao

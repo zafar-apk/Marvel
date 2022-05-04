@@ -1,6 +1,6 @@
 package com.education.marvel.data.network
 
-import com.education.marvel.data.entity.CharactersDataWrapper
+import com.education.marvel.data.entity.character.CharactersDataWrapper
 import retrofit2.http.GET
 import retrofit2.http.Query
 

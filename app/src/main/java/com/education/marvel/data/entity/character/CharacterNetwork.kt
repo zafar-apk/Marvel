@@ -1,6 +1,7 @@
-package com.education.marvel.data.entity
+package com.education.marvel.data.entity.character
 
-import com.education.marvel.data.entity.comic.SummaryList
+import com.education.marvel.data.entity.NetworkImage
+import com.education.marvel.data.entity.SummaryList
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
