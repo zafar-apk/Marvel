@@ -30,6 +30,10 @@ import kotlin.math.roundToInt
 
 class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
 
+    private companion object {
+        const val LIST_SPAN_COUNT = 2
+    }
+
     @Inject
     lateinit var viewModelFactory: CharacterListViewModel.Factory
     private val viewModel: CharacterListViewModel by viewModels { viewModelFactory }
@@ -41,7 +45,7 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     }
 
     private val gridLayoutManager by lazy {
-        GridLayoutManager(requireContext(), 2)
+        GridLayoutManager(requireContext(), LIST_SPAN_COUNT)
     }
 
     private val pagingScrollListener by lazy {
