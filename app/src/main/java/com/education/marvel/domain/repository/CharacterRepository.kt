@@ -12,6 +12,4 @@ interface CharacterRepository {
 
     suspend fun getById(id: Int): Character
 
-    suspend fun clear()
-
 }

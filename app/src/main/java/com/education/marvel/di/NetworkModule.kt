@@ -1,7 +1,6 @@
 package com.education.marvel.di
 
 import com.education.marvel.AppConstants.BASE_URL
-import com.education.marvel.AppConstants.THUMBNAIL_PATH
 import com.education.marvel.BuildConfig
 import com.education.marvel.data.network.AuthInterceptor
 import com.education.marvel.data.network.MarvelApi
@@ -11,6 +10,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 
 @Module(includes = [NetworkBindingsModule::class])
@@ -23,6 +23,7 @@ object NetworkModule {
     )
 
     @Provides
+    @Singleton
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
         authInterceptor: AuthInterceptor
@@ -32,6 +33,7 @@ object NetworkModule {
         .build()
 
     @Provides
+    @Singleton
     fun provideRetrofit(
         client: OkHttpClient
     ): Retrofit = Retrofit.Builder()
@@ -41,6 +43,7 @@ object NetworkModule {
         .build()
 
     @Provides
+    @Singleton
     fun provideMarvelApi(retrofit: Retrofit): MarvelApi = retrofit.create(MarvelApi::class.java)
 
 }

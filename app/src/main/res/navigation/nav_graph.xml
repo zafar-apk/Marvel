@@ -22,7 +22,7 @@
         android:id="@+id/characterDetailsFragment"
         android:name="com.education.marvel.presenter.screen.details.CharacterDetailsFragment"
         android:label="CharacterDetailsFragment"
-        tools:layout="@layout/fragment_character_details" >
+        tools:layout="@layout/fragment_character_details">
         <argument
             android:name="character_id"
             app:argType="integer" />

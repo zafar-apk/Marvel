@@ -1,8 +1,8 @@
 package com.education.marvel.data.mapper
 
+import com.education.marvel.data.entity.NetworkImage
 import com.education.marvel.data.entity.character.CharacterEntity
 import com.education.marvel.data.entity.character.CharacterNetwork
-import com.education.marvel.data.entity.NetworkImage
 import com.education.marvel.data.utils.CharacterDetailsBuilder
 import com.education.marvel.domain.entity.Character
 import com.education.marvel.domain.entity.Image
@@ -12,7 +12,6 @@ fun CharacterNetwork.toCharacter(detailsBuilder: CharacterDetailsBuilder, page: 
     name = name,
     description = description,
     modified = modified,
-    resUrl = resUrl,
     thumbnail = thumbnail?.map(),
     details = detailsBuilder.build(this),
     page = page
@@ -23,7 +22,6 @@ fun CharacterEntity.toCharacter() = Character(
     name = name,
     description = description,
     modified = modified,
-    resUrl = resUrl,
     thumbnail = thumbnail,
     details = details,
     page = page
@@ -34,7 +32,6 @@ fun Character.toEntity(page: Int) = CharacterEntity(
     name = name,
     description = description,
     modified = modified,
-    resUrl = resUrl,
     thumbnail = thumbnail,
     details = details,
     page = page

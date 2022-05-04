@@ -8,7 +8,6 @@ data class Character(
     val name: String?,
     val description: String?,
     val modified: Date?,
-    val resUrl: String?,
     val thumbnail: Image?,
     val details: List<String>?,
     val page: Int,

@@ -12,13 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.education.marvel.App
-import com.education.marvel.AppConstants
 import com.education.marvel.AppConstants.KEY_CHARACTER_ID
 import com.education.marvel.R
 import com.education.marvel.databinding.FragmentCharacterDetailsBinding
 import com.education.marvel.domain.entity.Character
-import com.education.marvel.domain.entity.Image
 import com.education.marvel.presenter.screen.details.adapter.DetailsAdapter
+import com.education.marvel.presenter.util.buildDetailImageUrl
 import javax.inject.Inject
 
 
@@ -44,6 +43,11 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
         return binding?.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -55,26 +59,23 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
 
     private fun setData(character: Character) {
         binding?.let { view ->
-            with(view) {
-                with(details) {
-                    val detailsAdapter = DetailsAdapter()
-                    detailListRecycler.adapter = detailsAdapter
-                    character.details?.let(detailsAdapter::submitList)
+            view.characterImage.load(character.thumbnail?.buildDetailImageUrl())
 
-                    title.text = character.name
-                    character.name?.let(::setupToolbar)
+            with(view.details) {
+                val detailsAdapter = DetailsAdapter()
+                detailListRecycler.adapter = detailsAdapter
+                character.details?.let(detailsAdapter::submitList)
 
-                    date.text = getString(R.string.modified, character.modifiedFormatted)
-                    characterImage.load(character.thumbnail?.buildUrl())
+                title.text = character.name
+                character.name?.let(::setupToolbar)
 
-                    description.isVisible = !character.description.isNullOrEmpty()
-                    description.text = character.description
-                }
+                date.text = getString(R.string.modified, character.modifiedFormatted)
+
+                description.isVisible = !character.description.isNullOrEmpty()
+                description.text = character.description
             }
         }
     }
-
-    private fun Image.buildUrl() = "$path/${AppConstants.THUMBNAIL_MAIN_PATH}.$extension"
 
     private fun setupToolbar(title: String) {
         binding?.toolbar?.let { toolbar ->
@@ -88,4 +89,5 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
             }
         }
     }
+
 }

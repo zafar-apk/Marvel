@@ -17,9 +17,6 @@ interface CharacterDao : LocalDataSource {
     @Query("SELECT * FROM $TABLE_NAME WHERE id = :id")
     override suspend fun getById(id: Int): CharacterEntity
 
-    @Query("DELETE FROM $TABLE_NAME")
-    override suspend fun clear()
-
     @Query("SELECT * FROM $TABLE_NAME WHERE page = :page")
     override suspend fun getByPage(page: Int): List<CharacterEntity>
 }

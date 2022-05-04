@@ -13,7 +13,7 @@ interface MarvelApi {
     @GET("/v1/public/characters")
     suspend fun getCharacters(
         @Query("offset") offset: Int,
-        @Query("orderBy") orderBy: String = MODIFIED_DESC,
+        @Query("orderBy") orderBy: String = MODIFIED_DESC
     ): CharactersDataWrapper
 
 }

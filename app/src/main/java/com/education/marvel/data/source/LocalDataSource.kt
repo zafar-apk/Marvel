@@ -10,6 +10,4 @@ interface LocalDataSource {
 
     suspend fun getById(id: Int): CharacterEntity
 
-    suspend fun clear()
-
 }

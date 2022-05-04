@@ -12,7 +12,7 @@ class DetailsAdapter : RecyclerView.Adapter<DetailsAdapter.ViewHolder>() {
     private var items: List<String> = emptyList()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(list: List<String>){
+    fun submitList(list: List<String>) {
         items = list
         notifyDataSetChanged()
     }

@@ -27,6 +27,7 @@ class AuthInterceptor @Inject constructor() : Interceptor {
         val request = chain.request().newBuilder()
             .url(url)
             .build()
+
         return chain.proceed(request)
     }
 }

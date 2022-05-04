@@ -50,6 +50,11 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         }
     }
 
+    override fun onAttach(context: Context) {
+        (context.applicationContext as? App)?.appComponent?.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -59,9 +64,9 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         return binding?.root
     }
 
-    override fun onAttach(context: Context) {
-        (context.applicationContext as? App)?.appComponent?.inject(this)
-        super.onAttach(context)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,11 +77,17 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         viewModel.characters.observe(viewLifecycleOwner, charactersAdapter::submitList)
         viewModel.error.observe(viewLifecycleOwner, ::onError)
         viewModel.loading.observe(viewLifecycleOwner, ::onLoadingChanged)
-
     }
 
-    private fun onLoadingChanged(loading: Boolean) {
-        binding?.progressBar?.isVisible = loading
+    private fun setupRecyclerView() {
+        binding?.charactersRecyclerView?.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            setHasFixedSize(true)
+            adapter = charactersAdapter
+            addOnScrollListener(pagingScrollListener)
+            val spacingInPixels = resources?.getDimension(R.dimen.item_space)
+            addItemDecoration(SpacesItemDecoration(spacingInPixels?.roundToInt() ?: 0))
+        }
     }
 
     private fun onError(throwable: Throwable?) {
@@ -100,6 +111,10 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         }
     }
 
+    private fun onLoadingChanged(loading: Boolean) {
+        binding?.progressBar?.isVisible = loading
+    }
+
     private fun onCharacterClicked(id: Int) {
         findNavController().navigate(
             R.id.action_characterListFragment_to_characterDetailsFragment,
@@ -107,19 +122,4 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
         )
     }
 
-    private fun setupRecyclerView() {
-        binding?.charactersRecyclerView?.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
-            setHasFixedSize(true)
-            adapter = charactersAdapter
-            addOnScrollListener(pagingScrollListener)
-            val spacingInPixels = resources?.getDimension(R.dimen.item_space)
-            addItemDecoration(SpacesItemDecoration(spacingInPixels?.roundToInt() ?: 0))
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
-    }
 }

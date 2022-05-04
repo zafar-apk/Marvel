@@ -25,9 +25,7 @@ class CharacterDetailsViewModel @Inject constructor(
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             require(modelClass == CharacterDetailsViewModel::class.java)
-            return CharacterDetailsViewModel(
-                getCharacterUseCase.get()
-            ) as T
+            return CharacterDetailsViewModel(getCharacterUseCase.get()) as T
         }
     }
 
