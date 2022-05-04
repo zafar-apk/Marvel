@@ -21,10 +21,12 @@ import com.education.marvel.R
 import com.education.marvel.databinding.FragmentCharacterListBinding
 import com.education.marvel.presenter.screen.list.adapter.CharactersAdapter
 import com.education.marvel.presenter.util.EndlessRecyclerViewScrollListener
+import com.education.marvel.presenter.util.SpacesItemDecoration
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
 
@@ -111,6 +113,8 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
             setHasFixedSize(true)
             adapter = charactersAdapter
             addOnScrollListener(pagingScrollListener)
+            val spacingInPixels = resources?.getDimension(R.dimen.item_space)
+            addItemDecoration(SpacesItemDecoration(spacingInPixels?.roundToInt() ?: 0))
         }
     }
 

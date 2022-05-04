@@ -17,7 +17,7 @@ class CharacterListViewModel(
         const val INITIAL_PAGE = 1
     }
 
-    private var loadedList = listOf<Character>()
+    private val allCharacters = mutableSetOf<Character>()
 
     private val mutableCharacters = MutableLiveData<List<Character>>()
     val characters: LiveData<List<Character>> = mutableCharacters
@@ -45,12 +45,12 @@ class CharacterListViewModel(
     }
 
     private fun onPage(response: Result.Page<Character>) {
-        loadedList = loadedList + response.items
-        mutableCharacters.value = loadedList
+        allCharacters += response.items
+        mutableCharacters.value = allCharacters.toList()
     }
 
     fun retry() {
-        getCharacters(loadedList.lastOrNull()?.page ?: INITIAL_PAGE)
+        getCharacters(allCharacters.lastOrNull()?.page ?: INITIAL_PAGE)
     }
 
     class Factory @Inject constructor(
