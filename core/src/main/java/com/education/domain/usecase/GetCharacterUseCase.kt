@@ -1,8 +1,7 @@
-package com.education.details.domain.usecase
+package com.education.domain.usecase
 
 import com.education.domain.entity.Character
 import com.education.domain.repository.CharacterRepository
-import com.education.domain.usecase.CharacterFormatDateUseCase
 import javax.inject.Inject
 
 class GetCharacterUseCase @Inject constructor(

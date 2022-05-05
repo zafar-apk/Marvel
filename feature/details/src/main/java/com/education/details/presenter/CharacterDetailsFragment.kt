@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.education.details.R
 import com.education.details.databinding.FragmentCharacterDetailsBinding
-import com.education.details.di.FeatureDetailsComponentProvider
+import com.education.details.di.DaggerFeatureDetailsComponent
+import com.education.details.di.FeatureDetailsDepsProvider
 import com.education.details.presenter.adapter.DetailsAdapter
 import com.education.domain.AppConstants.KEY_CHARACTER_ID
 import com.education.domain.entity.Character
@@ -30,9 +29,12 @@ class CharacterDetailsFragment : Fragment(R.layout.fragment_character_details) {
     private var binding: FragmentCharacterDetailsBinding? = null
 
     override fun onAttach(context: Context) {
-        ViewModelProvider(this).get<FeatureDetailsComponentProvider>()
-            .featureComponent
-            .inject(this)
+        (context.applicationContext as? FeatureDetailsDepsProvider)?.featureDetailsDeps?.let { deps ->
+            DaggerFeatureDetailsComponent.builder()
+                .deps(deps)
+                .build()
+                .inject(this)
+        }
         super.onAttach(context)
     }
 

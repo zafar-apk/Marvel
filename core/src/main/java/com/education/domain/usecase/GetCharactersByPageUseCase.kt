@@ -1,8 +1,7 @@
-package com.education.list.domain.usecase
+package com.education.domain.usecase
 
 import com.education.domain.entity.Character
 import com.education.domain.entity.Result
-import com.education.domain.usecase.CharacterFormatDateUseCase
 import com.education.domain.repository.CharacterListRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flow

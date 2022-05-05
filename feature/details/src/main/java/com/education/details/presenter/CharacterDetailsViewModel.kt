@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.education.domain.entity.Character
-import com.education.details.domain.usecase.GetCharacterUseCase
+import com.education.domain.usecase.GetCharacterUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

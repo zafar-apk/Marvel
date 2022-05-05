@@ -10,8 +10,6 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -19,7 +17,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.education.domain.util.detailsFragmentDeeplink
 import com.education.list.R
 import com.education.list.databinding.FragmentCharacterListBinding
-import com.education.list.di.FeatureListComponentViewModel
+import com.education.list.di.DaggerFeatureListComponent
+import com.education.list.di.FeatureListDepsProvider
 import com.education.list.presentation.adapter.CharactersAdapter
 import com.education.list.presentation.util.EndlessRecyclerViewScrollListener
 import com.education.list.presentation.util.SpacesItemDecoration
@@ -49,9 +48,12 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list) {
     }
 
     override fun onAttach(context: Context) {
-        ViewModelProvider(this).get<FeatureListComponentViewModel>()
-            .featureComponent
-            .inject(this)
+        (context.applicationContext as? FeatureListDepsProvider)?.featureListDeps?.let { deps ->
+            DaggerFeatureListComponent.builder()
+                .deps(deps)
+                .build()
+                .inject(this)
+        }
         super.onAttach(context)
     }
 

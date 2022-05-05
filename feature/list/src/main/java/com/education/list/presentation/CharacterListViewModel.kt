@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.education.domain.entity.Character
 import com.education.domain.entity.Result
-import com.education.list.domain.usecase.GetCharactersByPageUseCase
+import com.education.domain.usecase.GetCharactersByPageUseCase
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
